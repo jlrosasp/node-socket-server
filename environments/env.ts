@@ -1,6 +1,6 @@
 export default {
     API: {
-        PORT: 3000
+        PORT: 3003
     },
     MONGODB: {
         HOST: '',

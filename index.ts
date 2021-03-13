@@ -39,19 +39,27 @@ const httpServer = http.createServer(app);
 const socketIO = require('socket.io')(httpServer);
 
 // Funcionalidad Real-Time
+let usersList: any[] = [];
 socketIO.on('connection', (socket: Socket) => {
     // TO DO: Lógica Real-Time
     console.log(`Nuevo cliente conectado con ID: ${socket.id}`);
+    console.log(`Aquí se detecta una nueva conexión de un cliente y se guarda en base de datos con ID: ${socket.id}`);
+
 
     socket.on('message', (payload: any) => {
-        console.log(`Escuchando Mensaje ${JSON.stringify(payload)}`);
         console.log(`Escuchando Mensaje `, payload);
+
+        // Agregar Payload al Arreglo
+        usersList.push(payload);
+
         // Retransmitir la variable payload  a todos los clientes conectados
-        socketIO.emit('broadcast-message', payload);
+        socketIO.emit('broadcast-message', usersList);
     });
 
     socket.on('disconnect', () => {
         console.log(`Desconexión del cliente con ID: ${socket.id}`);
+        // TO DO: Guardar Log en Base de Datos
+        console.log(`TO DO: Guardar Log en Base de Datos ${socket.id}`);
     });
 
 });
