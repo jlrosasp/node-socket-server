@@ -3,10 +3,10 @@ export default {
         PORT: 3003
     },
     MONGODB: {
-        HOST: 'localhost',
-        PORT: '27017',
+        HOST: '',
+        PORT: '',
         USER_NAME: '',
         USER_PASSWORD: '',
-        DATABASE: 'dbMTWDyM'
+        DATABASE: ''
     }
 };
