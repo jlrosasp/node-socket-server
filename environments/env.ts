@@ -8,5 +8,8 @@ export default {
         USER_NAME: '',
         USER_PASSWORD: '',
         DATABASE: 'dbMTWDyM'
+    },
+    TOKEN: {
+        EXPIRES: 60 * 60 * 4 // 4 Horas
     }
 };
